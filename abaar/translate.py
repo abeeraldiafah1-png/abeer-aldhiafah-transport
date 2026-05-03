@@ -165,7 +165,7 @@ translations = {
     'جميع الحقوق محفوظة': 'All rights reserved',
     '>ع<': '>AR<',
     'ABEER': 'ABEER',
-    'abeer-aldhiafah-pro-en.html': 'abeer-aldhiafah-pro.html',
+    'abeer-aldhiafah-pro-en.html': 'index.html',
     'EN <i class=\\'bx bx-globe\\'></i>': 'AR <i class=\\'bx bx-globe\\'></i>',
     'English <i class=\\'bx bx-globe\\'></i>': 'العربية <i class=\\'bx bx-globe\\'></i>'
 }

@@ -1,0 +1,991 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+<title>شركة عبير الضيافة للنقليات</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&family=Amiri+Quran&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --c:#7B1533;
+  --c2:#5a0f24;
+  --gold:#A07540;
+  --sand:#C9A870;
+  --sand2:#E8D5A8;
+  --cream:#F5EDD8;
+  --bg:#FDFAF3;
+  --dark:#120609;
+  --txt:#1E0B10;
+  --txt2:#5A3020;
+  --white:#ffffff;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Tajawal',sans-serif;background:var(--bg);color:var(--txt);overflow-x:hidden}
+
+/* ── NAV ── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:999;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 6%;height:90px;
+  background:var(--bg);
+  transition:all .3s;
+}
+nav.scrolled{box-shadow:0 4px 30px rgba(123,21,51,0.08);height:76px;background:rgba(253,250,243,0.95);backdrop-filter:blur(10px)}
+nav.scrolled .logo-mark{width:60px;height:60px}
+.logo{display:flex;align-items:center;gap:12px;text-decoration:none}
+.logo-mark{
+  width:74px;height:74px;border-radius:10px;
+  background:transparent;display:flex;align-items:center;justify-content:center;
+  font-family:'Amiri',serif;color:#fff;font-size:22px;font-weight:700;
+  transition:all .3s;
+}
+.logo-text{line-height:1.2}
+.logo-text strong{display:block;font-size:1.1rem;font-weight:800;color:var(--c)}
+.logo-text span{font-size:.75rem;color:var(--gold);font-weight:600;letter-spacing:.5px}
+.nav-links{display:flex;align-items:center;gap:26px;list-style:none}
+.nav-links a{text-decoration:none;font-size:.88rem;font-weight:600;color:var(--txt2);transition:.2s}
+.nav-links a:hover{color:var(--c)}
+.nav-wa{
+  background:var(--c);color:#fff!important;
+  padding:9px 20px;border-radius:8px;
+  font-weight:700!important;font-size:.85rem!important;
+  box-shadow:0 4px 14px rgba(123,21,51,0.25);
+  transition:all .2s!important;
+}
+.nav-wa:hover{background:var(--c2)!important;transform:translateY(-1px)!important}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px}
+.hamburger span{width:24px;height:2px;background:var(--c);border-radius:2px;transition:.3s}
+.mobile-menu{display:none;position:fixed;top:68px;left:0;right:0;background:var(--bg);border-bottom:1.5px solid rgba(160,117,64,0.2);padding:20px 6%;flex-direction:column;gap:16px;z-index:998}
+.mobile-menu a{text-decoration:none;font-size:1rem;font-weight:600;color:var(--txt2);padding:8px 0;border-bottom:1px dashed rgba(160,117,64,0.2)}
+.mobile-menu.open{display:flex}
+
+/* ── HERO ── */
+.hero{
+  min-height:100vh;
+  background:var(--bg);
+  display:flex;align-items:center;
+  position:relative;overflow:hidden;padding:120px 6% 60px;
+}
+.hero-content{
+  width:55%;max-width:650px;position:relative;z-index:3;
+}
+.hero-image{
+  position:absolute;top:0;bottom:0;left:0;
+  width:60%;
+  background:url('hero-bus.png') center/cover no-repeat;
+  z-index:1;
+  -webkit-mask-image:linear-gradient(to right, black 50%, transparent 100%);
+  mask-image:linear-gradient(to right, black 50%, transparent 100%);
+  animation:fadeUp 1.2s both, heroZoom 12s ease-out both;
+}
+.hero-h1{
+  font-family:'Amiri',serif;
+  font-size:clamp(2.4rem,4.5vw,4.5rem);
+  color:var(--c);line-height:1.2;margin-bottom:20px;
+  animation:fadeUp .9s both;
+}
+.hero-h1 em{color:var(--gold);font-style:normal}
+.hero-tagline{
+  font-size:clamp(1rem,1.8vw,1.15rem);
+  color:var(--txt2);line-height:1.8;
+  max-width:550px;margin-bottom:40px;
+  animation:fadeUp 1s both;
+}
+.hero-btns{display:flex;gap:16px;flex-wrap:wrap;animation:fadeUp 1.1s both}
+.btn-main{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  background:var(--c);color:#fff;
+  padding:16px 36px;border-radius:12px;
+  font-size:1.05rem;font-weight:800;text-decoration:none;
+  box-shadow:0 8px 24px rgba(123,21,51,.25);
+  transition:all .3s;
+}
+.btn-main:hover{background:var(--c2);transform:translateY(-2px);box-shadow:0 12px 32px rgba(123,21,51,.35)}
+.btn-outline{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  background:transparent;color:var(--txt);
+  padding:16px 36px;border-radius:12px;
+  font-size:1.05rem;font-weight:700;text-decoration:none;
+  border:1.5px solid rgba(160,117,64,.3);
+  transition:all .3s;
+}
+.btn-outline:hover{border-color:var(--c);color:var(--c);background:rgba(123,21,51,.03);transform:translateY(-2px)}
+.hero-features{
+  display:flex;gap:30px;margin-top:60px;
+  animation:fadeUp 1.3s both;
+}
+.hf-item{display:flex;flex-direction:column;gap:8px;align-items:center;text-align:center}
+.hf-icon{font-size:1.8rem;margin-bottom:4px}
+.hf-item strong{font-size:1rem;color:var(--c);font-weight:800}
+.hf-item span{font-size:.85rem;color:var(--txt2);opacity:.85}
+
+/* ── STATS ── */
+.stats{
+  background:var(--c);
+  display:flex;justify-content:center;flex-wrap:wrap;gap:0;
+}
+.stat{
+  flex:1;min-width:150px;max-width:220px;
+  padding:28px 20px;text-align:center;color:#fff;
+  border-left:1px solid rgba(255,255,255,.1);
+  transition:.3s;cursor:default;
+}
+.stat:first-child{border-left:none}
+.stat:hover{background:rgba(255,255,255,.05)}
+.stat-n{font-family:'Amiri',serif;font-size:2.2rem;font-weight:700;color:var(--sand);display:block}
+.stat-l{font-size:.82rem;opacity:.8;margin-top:2px}
+
+/* ── SHARED ── */
+.section{padding:100px 6%;max-width:1300px;margin:0 auto}
+.full-section{padding:100px 6%}
+.tag{
+  display:inline-block;
+  background:rgba(123,21,51,.07);color:var(--c);
+  font-size:.72rem;font-weight:800;letter-spacing:2px;text-transform:uppercase;
+  padding:5px 16px;border-radius:100px;
+  border:1px solid rgba(123,21,51,.15);margin-bottom:14px;
+}
+.sec-h{font-family:'Amiri',serif;font-size:clamp(1.8rem,4vw,2.8rem);color:var(--c);margin-bottom:14px}
+.sec-p{font-size:1rem;color:var(--txt2);line-height:1.85;max-width:620px}
+.center{text-align:center}.center .sec-p{margin:0 auto}
+
+/* ── ABOUT ── */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center}
+.about-visual{position:relative}
+.about-card-main{
+  background:linear-gradient(145deg,var(--c),var(--c2));
+  border-radius:24px;padding:50px 40px;color:#fff;
+  position:relative;overflow:hidden;
+  box-shadow:0 24px 70px rgba(123,21,51,.3);
+}
+.about-card-main::before{
+  content:'';position:absolute;
+  top:-60px;right:-60px;
+  width:220px;height:220px;
+  background:rgba(255,255,255,.04);border-radius:50%;
+}
+.about-card-main::after{
+  content:'';position:absolute;
+  bottom:-80px;left:-40px;
+  width:280px;height:280px;
+  background:rgba(201,168,112,.06);border-radius:50%;
+}
+.about-big-icon{font-size:3.5rem;margin-bottom:18px;display:block;position:relative;z-index:1}
+.about-card-main h3{font-family:'Amiri',serif;font-size:1.5rem;color:var(--sand);margin-bottom:10px;position:relative;z-index:1}
+.about-card-main p{font-size:.92rem;opacity:.85;line-height:1.8;position:relative;z-index:1}
+.about-float{
+  position:absolute;bottom:-20px;left:-20px;
+  background:#fff;border-radius:16px;
+  padding:16px 20px;
+  box-shadow:0 12px 40px rgba(0,0,0,.1);
+  display:flex;align-items:center;gap:12px;
+  border:1.5px solid rgba(160,117,64,.15);
+}
+.about-float-icon{width:44px;height:44px;background:rgba(123,21,51,.08);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.3rem}
+.about-float-text strong{display:block;font-size:.9rem;font-weight:800;color:var(--c)}
+.about-float-text span{font-size:.75rem;color:var(--txt2)}
+.about-text .sec-h{margin-top:14px}
+.about-text p{font-size:.97rem;color:var(--txt2);line-height:1.9;margin-bottom:16px}
+.about-pills{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+.pill{
+  display:flex;align-items:center;gap:7px;
+  background:#fff;border:1.5px solid rgba(160,117,64,.2);
+  color:var(--txt2);font-size:.85rem;font-weight:600;
+  padding:9px 16px;border-radius:100px;
+  transition:.3s;cursor:default;
+}
+.pill:hover{border-color:var(--c);color:var(--c);transform:translateY(-2px)}
+.pill-dot{width:8px;height:8px;background:var(--sand);border-radius:50%;flex-shrink:0}
+
+/* ── SERVICES ── */
+.services-section{background:linear-gradient(180deg,var(--cream) 0%,var(--bg) 100%);padding:100px 6%}
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;max-width:1300px;margin:60px auto 0}
+.svc-card{
+  background:#fff;border-radius:22px;padding:40px 30px;
+  border:1.5px solid rgba(160,117,64,.12);
+  transition:all .4s;position:relative;overflow:hidden;
+  box-shadow:0 4px 20px rgba(0,0,0,.04);
+}
+.svc-card::after{
+  content:'';position:absolute;
+  top:0;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,var(--c),var(--sand));
+  transform:scaleX(0);transform-origin:right;transition:.4s;
+}
+.svc-card:hover{border-color:rgba(123,21,51,.2);box-shadow:0 20px 60px rgba(123,21,51,.1);transform:translateY(-8px)}
+.svc-card:hover::after{transform:scaleX(1)}
+.svc-icon{
+  width:74px;height:74px;border-radius:18px;
+  background:linear-gradient(135deg,rgba(123,21,51,.06),rgba(201,168,112,.1));
+  display:flex;align-items:center;justify-content:center;
+  font-size:2rem;margin-bottom:24px;
+  transition:.4s;
+}
+.svc-card:hover .svc-icon{background:linear-gradient(135deg,var(--c),#8b1a3a);transform:scale(1.08) rotate(4deg)}
+.svc-h{font-family:'Amiri',serif;font-size:1.4rem;color:var(--c);margin-bottom:12px}
+.svc-p{font-size:.9rem;color:var(--txt2);line-height:1.8;margin-bottom:20px}
+.svc-list{list-style:none}
+.svc-list li{
+  font-size:.86rem;color:var(--txt2);
+  padding:7px 0;border-bottom:1px dashed rgba(160,117,64,.2);
+  display:flex;align-items:center;gap:8px;
+}
+.svc-list li:last-child{border-bottom:none}
+.svc-list li::before{content:'◆';color:var(--sand);font-size:6px;flex-shrink:0}
+.svc-tag{
+  display:inline-block;margin-top:18px;
+  background:rgba(123,21,51,.06);color:var(--c);
+  font-size:.75rem;font-weight:700;padding:5px 14px;border-radius:100px;
+  border:1px solid rgba(123,21,51,.12);
+}
+
+/* ── WHY US ── */
+.why-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-top:60px}
+.why-card{
+  background:#fff;border-radius:18px;padding:32px 24px;text-align:center;
+  border:1.5px solid rgba(160,117,64,.12);
+  box-shadow:0 4px 18px rgba(0,0,0,.04);
+  transition:.3s;
+}
+.why-card:hover{border-color:rgba(123,21,51,.2);transform:translateY(-4px);box-shadow:0 12px 40px rgba(123,21,51,.08)}
+.why-icon{
+  width:60px;height:60px;margin:0 auto 18px;
+  background:linear-gradient(135deg,rgba(123,21,51,.08),rgba(201,168,112,.1));
+  border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:1.6rem;
+}
+.why-h{font-size:1rem;font-weight:800;color:var(--c);margin-bottom:8px}
+.why-p{font-size:.85rem;color:var(--txt2);line-height:1.7}
+
+/* ── COVERAGE ── */
+.coverage{
+  background:linear-gradient(135deg,var(--c) 0%,#3D0A1A 100%);
+  padding:100px 6%;text-align:center;position:relative;overflow:hidden;
+}
+.coverage::before{
+  content:'';position:absolute;inset:0;
+  background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.025'%3E%3Cpolygon points='30 0 60 30 30 60 0 30'/%3E%3C/g%3E%3C/svg%3E");
+}
+.coverage-inner{position:relative;z-index:2;max-width:1000px;margin:0 auto}
+.coverage h2{font-family:'Amiri',serif;font-size:clamp(1.8rem,4vw,2.8rem);color:#fff;margin-bottom:16px}
+.coverage p{font-size:1rem;color:rgba(255,255,255,.75);margin-bottom:50px;line-height:1.8}
+.chips{display:flex;flex-wrap:wrap;justify-content:center;gap:12px}
+.chip{
+  padding:10px 24px;border-radius:100px;
+  font-size:.9rem;font-weight:600;cursor:default;transition:.3s;
+}
+.chip-main{background:var(--sand);color:var(--dark);font-weight:800}
+.chip-reg{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);color:#fff}
+.chip-reg:hover{background:rgba(255,255,255,.2);transform:scale(1.04)}
+
+/* ── SEASONS ── */
+.seasons-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:60px}
+.season-card{
+  border-radius:18px;overflow:hidden;
+  border:1.5px solid rgba(160,117,64,.15);
+  box-shadow:0 4px 20px rgba(0,0,0,.05);
+  transition:.3s;
+}
+.season-card:hover{transform:translateY(-4px);box-shadow:0 14px 44px rgba(123,21,51,.1)}
+.season-head{
+  position:relative;
+  padding:50px 24px 30px;color:#fff;text-align:center;
+  background-size:cover!important;background-position:center!important;
+}
+.season-head::before{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(to bottom,rgba(123,21,51,.4) 0%,rgba(18,6,9,.9) 100%);
+  z-index:1;
+}
+.season-head > *{position:relative;z-index:2}
+.season-head h3{font-family:'Amiri',serif;font-size:1.5rem;color:var(--sand);margin-bottom:6px;text-shadow:0 2px 10px rgba(0,0,0,.5)}
+.season-head p{font-size:.9rem;opacity:.95;text-shadow:0 2px 10px rgba(0,0,0,.5)}
+.season-body{background:#fff;padding:24px}
+.season-body ul{list-style:none}
+.season-body li{
+  font-size:.88rem;color:var(--txt2);
+  padding:8px 0;border-bottom:1px dashed rgba(160,117,64,.15);
+  display:flex;align-items:center;gap:8px;
+}
+.season-body li:last-child{border-bottom:none}
+.season-body li::before{content:'✓';color:var(--sand);font-weight:800;font-size:.9rem}
+
+/* ── TESTIMONIALS ── */
+.test-section{background:var(--cream);padding:100px 6%}
+.test-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:60px;max-width:1300px;margin-left:auto;margin-right:auto}
+.test-card{background:#fff;border-radius:20px;padding:32px;border:1.5px solid rgba(160,117,64,.12);box-shadow:0 4px 18px rgba(0,0,0,.04);position:relative}
+.test-card::before{
+  content:'"';font-size:5rem;color:rgba(123,21,51,.08);
+  position:absolute;top:10px;right:20px;line-height:1;font-family:'Amiri',serif;
+}
+.test-stars{color:var(--sand);font-size:1rem;margin-bottom:14px;letter-spacing:2px}
+.test-text{font-size:.92rem;color:var(--txt2);line-height:1.8;margin-bottom:20px;position:relative;z-index:1}
+.test-author{display:flex;align-items:center;gap:12px}
+.test-avatar{
+  width:44px;height:44px;border-radius:50%;
+  background:linear-gradient(135deg,var(--c),var(--gold));
+  display:flex;align-items:center;justify-content:center;
+  color:#fff;font-size:.95rem;font-weight:800;flex-shrink:0;
+}
+.test-name strong{display:block;font-size:.9rem;font-weight:800;color:var(--txt)}
+.test-name span{font-size:.78rem;color:var(--txt2)}
+
+/* ── PRICING ── */
+.price-banner{
+  background:#fff;border-radius:24px;padding:64px 50px;text-align:center;
+  border:2px solid rgba(160,117,64,.18);
+  box-shadow:0 10px 50px rgba(0,0,0,.06);
+  position:relative;overflow:hidden;max-width:780px;margin:0 auto;
+}
+.price-banner::before{
+  content:'';position:absolute;
+  top:-100px;right:-100px;
+  width:350px;height:350px;
+  background:radial-gradient(circle,rgba(123,21,51,.04) 0%,transparent 70%);
+  border-radius:50%;
+}
+.price-big-icon{font-size:3.8rem;margin-bottom:20px;display:block}
+.price-h{font-family:'Amiri',serif;font-size:2rem;color:var(--c);margin-bottom:14px}
+.price-p{font-size:1rem;color:var(--txt2);line-height:1.85;max-width:560px;margin:0 auto 30px}
+.price-tags{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-bottom:36px}
+.price-tag{
+  background:rgba(123,21,51,.06);color:var(--c);
+  border:1px solid rgba(123,21,51,.14);
+  padding:9px 22px;border-radius:100px;font-size:.88rem;font-weight:700;
+}
+
+/* ── CONTACT ── */
+.contact-wrap{background:linear-gradient(160deg,var(--cream),var(--bg));padding:100px 6%}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:50px;max-width:1300px;margin:0 auto;align-items:start}
+.contact-info .sec-h{margin-top:14px}
+.contact-info p{font-size:.97rem;color:var(--txt2);line-height:1.9;margin-bottom:28px}
+.ccontacts{display:flex;flex-direction:column;gap:14px}
+.cc{
+  display:flex;align-items:center;gap:16px;
+  background:#fff;border-radius:14px;padding:16px 20px;
+  text-decoration:none;color:inherit;
+  border:1.5px solid rgba(160,117,64,.14);
+  box-shadow:0 2px 12px rgba(0,0,0,.04);
+  transition:.3s;
+}
+.cc:hover{border-color:var(--c);box-shadow:0 8px 28px rgba(123,21,51,.1);transform:translateX(-4px)}
+.cc-icon{width:46px;height:46px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.25rem;flex-shrink:0}
+.i-ph{background:rgba(123,21,51,.07)}
+.i-wa{background:#e8f8ee}
+.i-em{background:rgba(160,117,64,.1)}
+.i-lo{background:rgba(123,21,51,.05)}
+.i-ig{background:linear-gradient(135deg,#fce4ec,#e3f2fd)}
+.cc-label{font-size:.7rem;color:var(--gold);font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-bottom:2px}
+.cc-val{font-size:.9rem;font-weight:700;color:var(--txt)}
+
+/* WhatsApp box */
+.wa-box{
+  background:linear-gradient(145deg,var(--c),var(--c2));
+  border-radius:24px;padding:44px 36px;color:#fff;
+  position:sticky;top:88px;text-align:center;
+  box-shadow:0 20px 60px rgba(123,21,51,.25);
+}
+.wa-box-title{font-family:'Amiri',serif;font-size:1.7rem;color:var(--sand);margin-bottom:12px}
+.wa-box p{font-size:.92rem;opacity:.82;line-height:1.8;margin-bottom:28px}
+.wa-big-btn{
+  display:flex;align-items:center;justify-content:center;gap:10px;
+  background:#25D366;color:#fff;
+  padding:17px 28px;border-radius:12px;
+  font-size:1.05rem;font-weight:800;text-decoration:none;
+  box-shadow:0 8px 28px rgba(37,211,102,.35);
+  transition:.3s;margin-bottom:12px;
+}
+.wa-big-btn:hover{background:#1da851;transform:translateY(-2px);box-shadow:0 12px 36px rgba(37,211,102,.45)}
+.wa-note{font-size:.78rem;opacity:.65;display:flex;align-items:center;gap:6px;justify-content:center}
+.wa-note::before{content:'●';color:#4ddb83;font-size:8px}
+/* Map placeholder */
+.map-box{
+  background:#fff;border-radius:18px;border:1.5px solid rgba(160,117,64,.14);
+  overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,.05);margin-top:14px;
+}
+.map-head{background:var(--c);padding:14px 20px;color:#fff;font-size:.9rem;font-weight:700;display:flex;align-items:center;gap:8px}
+.map-body{padding:20px;display:flex;align-items:center;gap:12px}
+.map-body p{font-size:.87rem;color:var(--txt2);line-height:1.7}
+
+/* ── FOOTER ── */
+footer{background:#0E0407;color:#fff;padding:60px 6% 28px}
+.footer-inner{max-width:1300px;margin:0 auto}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:50px;margin-bottom:50px}
+.f-brand{color:rgba(255,255,255,.55);font-size:.88rem;line-height:1.85;margin-top:14px}
+.f-brand-name{font-family:'Amiri',serif;font-size:1.45rem;color:var(--sand);font-weight:700}
+.f-col h4{font-size:.8rem;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--sand);margin-bottom:18px}
+.f-col ul{list-style:none}
+.f-col li{margin-bottom:10px}
+.f-col a{color:rgba(255,255,255,.5);text-decoration:none;font-size:.88rem;transition:.2s}
+.f-col a:hover{color:var(--sand)}
+.footer-bottom{
+  border-top:1px solid rgba(255,255,255,.07);
+  padding-top:24px;
+  display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;
+}
+.footer-bottom p{color:rgba(255,255,255,.35);font-size:.82rem}
+.socials{display:flex;gap:10px}
+.soc{
+  width:38px;height:38px;border-radius:10px;
+  background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08);
+  display:flex;align-items:center;justify-content:center;
+  color:rgba(255,255,255,.6);text-decoration:none;font-size:.95rem;
+  transition:.3s;
+}
+.soc:hover{background:var(--c);border-color:var(--c);color:#fff;transform:translateY(-2px)}
+
+/* Float WA */
+.float-wa{
+  position:fixed;bottom:28px;left:28px;z-index:998;
+  width:58px;height:58px;border-radius:50%;
+  background:#25D366;color:#fff;font-size:1.6rem;
+  display:flex;align-items:center;justify-content:center;
+  text-decoration:none;
+  box-shadow:0 6px 24px rgba(37,211,102,.5);
+  animation:wapulse 2.5s infinite;transition:.3s;
+}
+.float-wa:hover{transform:scale(1.1);box-shadow:0 10px 36px rgba(37,211,102,.7)}
+@keyframes wapulse{
+  0%,100%{box-shadow:0 6px 24px rgba(37,211,102,.5)}
+  50%{box-shadow:0 6px 24px rgba(37,211,102,.5),0 0 0 12px rgba(37,211,102,.12)}
+}
+
+/* Animations */
+@keyframes fadeUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+@keyframes floatY{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+@keyframes heroZoom{0%{transform:scale(1.06)}100%{transform:scale(1)}}
+.reveal{opacity:0;transform:translateY(28px);transition:all .75s cubic-bezier(.22,1,.36,1)}
+.reveal.show{opacity:1;transform:none}
+.reveal-r{opacity:0;transform:translateX(28px);transition:all .75s cubic-bezier(.22,1,.36,1)}
+.reveal-r.show{opacity:1;transform:none}
+.reveal-l{opacity:0;transform:translateX(-28px);transition:all .75s cubic-bezier(.22,1,.36,1)}
+.reveal-l.show{opacity:1;transform:none}
+
+/* Interactive elements */
+.btn-main, .nav-wa, .wa-big-btn, .btn-gold, .btn-outline {position: relative; overflow: hidden;}
+.btn-main::after, .nav-wa::after, .wa-big-btn::after, .btn-gold::after {
+  content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
+  background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.3) 50%, rgba(255,255,255,0) 100%);
+  transform: rotate(30deg) translateX(-150%); transition: transform 0.6s cubic-bezier(0.2, 1, 0.3, 1);
+}
+.btn-main:hover::after, .nav-wa:hover::after, .wa-big-btn:hover::after, .btn-gold:hover::after {
+  transform: rotate(30deg) translateX(150%);
+}
+.about-float, .about-big-icon, .season-head-icon {animation: floatY 4s ease-in-out infinite;}
+
+.reveal-l{opacity:0;transform:translateX(-28px);transition:all .75s cubic-bezier(.22,1,.36,1)}
+.reveal-l.show{opacity:1;transform:none}
+
+/* ── RESPONSIVE ── */
+@media(max-width:1024px){
+  .services-grid,.why-grid{grid-template-columns:1fr 1fr}
+  .footer-grid{grid-template-columns:1fr 1fr;gap:30px}
+  .test-grid{grid-template-columns:1fr 1fr}
+  .seasons-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:768px){
+  .hamburger{display:flex}
+  .nav-links{display:none}
+  .hero{flex-direction:column;padding:120px 6% 0;text-align:center;gap:0;display:block}
+  .hero-content{width:100%;max-width:100%;text-align:center;margin-bottom:40px}
+  .hero-btns{justify-content:center}
+  .hero-features{justify-content:center;flex-wrap:wrap;gap:20px}
+  .hero-image{position:relative;width:100%;height:400px;min-height:400px;mask-image:linear-gradient(to bottom, transparent 0%, black 50%);-webkit-mask-image:linear-gradient(to bottom, transparent 0%, black 50%)}
+  .about-grid,.contact-grid{grid-template-columns:1fr}
+  .services-grid,.why-grid,.seasons-grid,.test-grid{grid-template-columns:1fr}
+  .footer-grid{grid-template-columns:1fr 1fr}
+  .about-float{display:none}
+  .stat{min-width:120px}
+  .price-banner{padding:40px 24px}
+}
+@media(max-width:480px){
+  .footer-grid{grid-template-columns:1fr}
+  .hero-btns{flex-direction:column;align-items:center}
+  .btn-main,.btn-outline{width:100%;justify-content:center}
+  .chips{gap:8px}
+  .chip{font-size:.82rem;padding:8px 16px}
+}
+</style>
+</head>
+<body>
+
+<!-- Float WhatsApp -->
+<a href="https://wa.me/966538538004" target="_blank" class="float-wa" title="واتساب"><i class='bx bxl-whatsapp'></i></a>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="#" class="logo">
+    <div class="logo-mark">
+      <img src="bir.png" alt="شعار عبير الضيافة" style="width: 100%; height: 100%; border-radius: inherit; object-fit: contain;">
+    </div>
+    <div class="logo-text">
+      <strong>عبير الضيافة</strong>
+      <span>للنقليات · Abeer Aldhiafah</span>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#about">من نحن</a></li>
+    <li><a href="#services">خدماتنا</a></li>
+    <li><a href="#why">لماذا نحن</a></li>
+    <li><a href="#coverage">التغطية</a></li>
+    <li><a href="#contact">تواصل</a></li>
+    <li><a href="https://wa.me/966538538004" target="_blank" class="nav-wa">احجز الآن</a></li>
+  </ul>
+  <div class="hamburger" id="hamburger">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobile-menu">
+  <a href="#about">من نحن</a>
+  <a href="#services">خدماتنا</a>
+  <a href="#why">لماذا نحن</a>
+  <a href="#coverage">مناطق التغطية</a>
+  <a href="#pricing">الأسعار</a>
+  <a href="#contact">تواصل معنا</a>
+  <a href="https://wa.me/966538538004" target="_blank" style="color:var(--c)!important;font-weight:800!important"><i class='bx bxl-whatsapp'></i> احجز عبر واتساب</a>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-content">
+    <h1 class="hero-h1">
+      رحلة مريحة<br>بخدمة <em>راقية</em>
+    </h1>
+    <p class="hero-tagline">
+      نقدم خدمات النقل والضيافة بأعلى معايير الجودة لنضمن لكم رحلة آمنة ومريحة وتجربة لا تُنسى.
+    </p>
+    <div class="hero-btns">
+      <a href="https://wa.me/966538538004" target="_blank" class="btn-main"><i class='bx bx-calendar-event'></i> احجز الآن</a>
+      <a href="https://wa.me/966538538004?text=السلام عليكم، أرغب في الاستفسار عن خدمات شركة عبير الضيافة" target="_blank" class="btn-outline"><i class='bx bxl-whatsapp'></i> تواصل واتساب</a>
+    </div>
+    
+    <div class="hero-features">
+      <div class="hf-item">
+        <div class="hf-icon"><i class='bx bx-shield-quarter'></i></div>
+        <strong>أمان</strong>
+        <span>سلامتك هي أولويتنا</span>
+      </div>
+      <div class="hf-item">
+        <div class="hf-icon"><i class='bx bx-chair'></i></div>
+        <strong>راحة</strong>
+        <span>مقاعد مريحة ومساحات واسعة</span>
+      </div>
+      <div class="hf-item">
+        <div class="hf-icon"><i class='bx bx-time-five'></i></div>
+        <strong>التزام</strong>
+        <span>الالتزام بالمواعيد بدقة</span>
+      </div>
+      <div class="hf-item">
+        <div class="hf-icon"><i class='bx bx-support'></i></div>
+        <strong>خدمة عملاء</strong>
+        <span>دعم على مدار الساعة</span>
+      </div>
+    </div>
+  </div>
+  <div class="hero-image"></div>
+</section>
+
+<!-- STATS -->
+<div class="stats">
+  <div class="stat"><span class="stat-n count-up" data-target="13">0</span><span class="stat-n" style="display:inline">+</span><span class="stat-l">منطقة مغطاة</span></div>
+  <div class="stat"><span class="stat-n count-up" data-target="3">0</span><span class="stat-l">خدمات متكاملة</span></div>
+  <div class="stat"><span class="stat-n count-up" data-target="24">0</span><span class="stat-n" style="display:inline">/7</span><span class="stat-l">خدمة متواصلة</span></div>
+  <div class="stat"><span class="stat-n">حديث</span><span class="stat-l">أسطول حافلات</span></div>
+  <div class="stat"><span class="stat-n">مرن</span><span class="stat-l">تسعير حسب البرنامج</span></div>
+</div>
+
+<!-- ABOUT -->
+<div class="section" id="about">
+  <div class="about-grid">
+    <div class="about-visual reveal-l">
+      <div class="about-card-main">
+        <span class="about-big-icon">🕋</span>
+        <h3>أسطول نقل متكامل</h3>
+        <p>نمتلك أسطولاً من الحافلات الكبيرة الحديثة، مجهزة لأعلى معايير الراحة والسلامة، تغطي جميع مناطق المملكة في خدمة ضيوف الرحمن وزوار الأماكن المقدسة.</p>
+      </div>
+      <div class="about-float">
+        <div class="about-float-icon"><i class='bx bx-map'></i></div>
+        <div class="about-float-text">
+          <strong>مكة المكرمة</strong>
+          <span>الرصيفة - مجمع الجروشي مول - مكتب 25</span>
+        </div>
+      </div>
+    </div>
+    <div class="about-text reveal-r">
+      <div class="tag">من نحن</div>
+      <h2 class="sec-h">شركة ضيافة ونقل بمعايير عالمية</h2>
+      <p>شركة عبير الضيافة للنقليات شركة سعودية متخصصة في تقديم خدمات النقل والعمرة والإعاشة داخل جميع مناطق المملكة العربية السعودية، بأسطول حديث ومعايير تشغيل عالية تضمن الجودة والالتزام وراحة العملاء.</p>
+      <p>نعمل على تصميم برامج نقل مرنة تناسب احتياجات الأفراد والمجموعات، مع اهتمام دقيق بأدق تفاصيل الرحلة لضمان تجربة مريحة وآمنة لجميع ضيوف الرحمن.</p>
+      <div class="about-pills">
+        <div class="pill"><div class="pill-dot"></div> معايير جودة عالية</div>
+        <div class="pill"><div class="pill-dot"></div> التزام تام</div>
+        <div class="pill"><div class="pill-dot"></div> أسطول حديث</div>
+        <div class="pill"><div class="pill-dot"></div> برامج مرنة</div>
+        <div class="pill"><div class="pill-dot"></div> خبرة موسمية</div>
+        <div class="pill"><div class="pill-dot"></div> تغطية شاملة</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<div class="services-section" id="services">
+  <div style="max-width:1300px;margin:0 auto" class="center">
+    <div class="tag">خدماتنا</div>
+    <h2 class="sec-h">ما نقدمه لكم</h2>
+    <p class="sec-p">نرتقي بخدمات النقل والضيافة لنمنحكم تجربة مريحة وآمنة في رحلاتكم الدينية والسياحية</p>
+  </div>
+  <div class="services-grid">
+    <div class="svc-card reveal">
+      <h3 class="svc-h">خدمة العمرة</h3>
+      <p class="svc-p">برامج عمرة متكاملة مصممة بعناية لتمنحكم تجربة روحانية استثنائية بأعلى معايير الراحة والأمان.</p>
+      <ul class="svc-list">
+        <li>برامج عمرة فردية وجماعية</li>
+        <li>نقل من وإلى الحرم المكي</li>
+        <li>تنسيق كامل لتفاصيل الرحلة</li>
+        <li>برامج موسمية متجددة</li>
+        <li>متابعة ميدانية مستمرة</li>
+      </ul>
+      <span class="svc-tag">متاح طوال العام</span>
+    </div>
+    <div class="svc-card reveal">
+      <h3 class="svc-h">خدمات النقل</h3>
+      <p class="svc-p">أسطول حديث من الحافلات الكبيرة يغطي جميع مناطق المملكة بأعلى مستويات الراحة والسلامة.</p>
+      <ul class="svc-list">
+        <li>حافلات كبيرة حديثة المواصفات</li>
+        <li>تغطية جميع مناطق المملكة</li>
+        <li>نقل الأفراد والمجموعات الكبيرة</li>
+        <li>سائقون محترفون مرخصون</li>
+        <li>جداول منظمة وثابتة</li>
+      </ul>
+      <span class="svc-tag">جميع مناطق المملكة</span>
+    </div>
+    <div class="svc-card reveal">
+      <h3 class="svc-h">خدمات الإعاشة</h3>
+      <p class="svc-p">حلول إقامة وإعاشة متكاملة تضمن راحتكم وسلامتكم طوال فترة إقامتكم في أي منطقة بالمملكة.</p>
+      <ul class="svc-list">
+        <li>حلول إقامة متنوعة ومرنة</li>
+        <li>خدمات تموين ووجبات</li>
+        <li>إعاشة للمجموعات الكبيرة</li>
+        <li>برامج موسم الحج والعمرة</li>
+        <li>تنسيق كامل مع شركاء الخدمة</li>
+      </ul>
+      <span class="svc-tag">حسب الطلب والميزانية</span>
+    </div>
+  </div>
+</div>
+
+<!-- WHY US -->
+<div class="section" id="why">
+  <div class="center">
+    <div class="tag">لماذا نحن</div>
+    <h2 class="sec-h">ما يميزنا عن غيرنا</h2>
+    <p class="sec-p">نؤمن بأن التفاصيل الصغيرة تصنع الفرق الكبير في تجربتكم</p>
+  </div>
+  <div class="why-grid">
+    <div class="why-card reveal">
+      <div class="why-h">جودة لا تُساوم</div>
+      <p class="why-p">نلتزم بأعلى معايير الجودة في جميع خدماتنا ونخضع لمراجعة مستمرة لضمان الأفضل لكم</p>
+    </div>
+    <div class="why-card reveal">
+      <div class="why-h">أسطول حديث</div>
+      <p class="why-p">حافلات كبيرة حديثة مجهزة بأحدث وسائل الراحة والسلامة، خضعت لجميع الاشتراطات الرسمية</p>
+    </div>
+    <div class="why-card reveal">
+      <div class="why-h">تغطية شاملة</div>
+      <p class="why-p">نغطي جميع مناطق المملكة العربية السعودية الثلاث عشرة بكفاءة عالية وتنسيق احترافي</p>
+    </div>
+    <div class="why-card reveal">
+      <div class="why-h">الالتزام بالمواعيد</div>
+      <p class="why-p">الوقت ثمين خاصة في رحلات العمرة والحج، نلتزم بدقة بالمواعيد المتفق عليها في جميع الأحوال</p>
+    </div>
+  </div>
+</div>
+
+<!-- COVERAGE -->
+<div class="coverage" id="coverage">
+  <div class="coverage-inner">
+    <div class="tag" style="background:rgba(255,255,255,.1);color:var(--sand);border-color:rgba(255,255,255,.15)" class="reveal">مناطق التغطية</div>
+    <h2 class="reveal">تغطية شاملة لجميع أرجاء المملكة</h2>
+    <p class="reveal">نفخر بتقديم خدماتنا في جميع المناطق الثلاث عشرة للمملكة العربية السعودية بأسطول حافلات كبيرة وحديثة وسائقين محترفين</p>
+    <div class="chips reveal">
+      <div class="chip chip-main">🕋 مكة المكرمة</div>
+      <div class="chip chip-main">🕌 المدينة المنورة</div>
+      <div class="chip chip-reg">الرياض</div>
+      <div class="chip chip-reg">جدة</div>
+      <div class="chip chip-reg">الطائف</div>
+      <div class="chip chip-reg">الدمام</div>
+      <div class="chip chip-reg">الجبيل</div>
+      <div class="chip chip-reg">أبها</div>
+      <div class="chip chip-reg">تبوك</div>
+      <div class="chip chip-reg">حائل</div>
+      <div class="chip chip-reg">القصيم</div>
+      <div class="chip chip-reg">جازان</div>
+      <div class="chip chip-reg">نجران</div>
+      <div class="chip chip-reg">الباحة</div>
+      <div class="chip chip-reg">وجميع مناطق المملكة ✦</div>
+    </div>
+  </div>
+</div>
+
+<!-- SEASONS -->
+<div class="section">
+  <div class="center">
+    <div class="tag">برامجنا</div>
+    <h2 class="sec-h">برامج متخصصة لكل موسم</h2>
+    <p class="sec-p">نصمم برامج متكاملة مرنة تتناسب مع كل موسم واحتياج</p>
+  </div>
+  <div class="seasons-grid" style="margin-top:60px">
+    <div class="season-card reveal">
+      <div class="season-head" style="background:url('umrah.png')">
+        <h3>موسم العمرة</h3>
+        <p>طوال العام - رمضان وغيره</p>
+      </div>
+      <div class="season-body">
+        <ul>
+          <li>برامج عمرة فردية وجماعية</li>
+          <li>تنسيق كامل لتفاصيل الرحلة</li>
+          <li>نقل مريح من وإلى الحرم</li>
+          <li>برامج رمضان المتخصصة</li>
+          <li>أسعار تنافسية حسب الموسم</li>
+        </ul>
+      </div>
+    </div>
+    <div class="season-card reveal">
+      <div class="season-head" style="background:url('hajj.png')">
+        <h3>موسم الحج</h3>
+        <p>ذو الحجة - الأيام المباركة</p>
+      </div>
+      <div class="season-body">
+        <ul>
+          <li>نقل ضيوف الرحمن لجميع المشاعر</li>
+          <li>تنسيق إعاشة كاملة في مكة</li>
+          <li>تشغيل على مدار الساعة</li>
+          <li>طواقم متخصصة وذات خبرة</li>
+          <li>برامج مجموعات منظمة</li>
+        </ul>
+      </div>
+    </div>
+    <div class="season-card reveal">
+      <div class="season-head" style="background:url('tourism.png')">
+        <h3>السياحة والنقل العام</h3>
+        <p>طوال العام - جميع مناطق المملكة</p>
+      </div>
+      <div class="season-body">
+        <ul>
+          <li>نقل بين المدن والمناطق</li>
+          <li>رحلات سياحية منظمة</li>
+          <li>تأجير حافلات بسائق</li>
+          <li>نقل المجموعات المؤسسية</li>
+          <li>برامج مرنة حسب الطلب</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TESTIMONIALS -->
+<div class="test-section">
+  <div style="max-width:1300px;margin:0 auto" class="center">
+    <div class="tag">آراء العملاء</div>
+    <h2 class="sec-h">ماذا يقول عملاؤنا</h2>
+    <p class="sec-p">ثقة عملائنا هي أعظم شهادة لجودة خدماتنا</p>
+  </div>
+  <div class="test-grid" style="margin-top:60px">
+    <div class="test-card reveal">
+      <div class="test-stars">★★★</div>
+      <p class="test-text">تجربة ممتازة مع شركة عبير الضيافة في موسم العمرة، الحافلات نظيفة ومريحة جداً والسائق محترف ومنظم. سنكرر التجربة بإذن الله.</p>
+      <div class="test-author">
+        <div class="test-avatar">م.أ</div>
+        <div class="test-name"><strong>محمد أحمد</strong><span>رحلة عمرة - الرياض</span></div>
+      </div>
+    </div>
+    <div class="test-card reveal">
+      <div class="test-stars">★★★★</div>
+      <p class="test-text">نظمنا رحلة جماعية لمجموعة كبيرة وكانت الخدمة احترافية جداً. الالتزام بالمواعيد والتنسيق الرائع جعل رحلتنا لا تُنسى. شكراً عبير الضيافة.</p>
+      <div class="test-author">
+        <div class="test-avatar">ف.س</div>
+        <div class="test-name"><strong>فاطمة السالم</strong><span>رحلة جماعية - جدة</span></div>
+      </div>
+    </div>
+    <div class="test-card reveal">
+      <div class="test-stars">★★★★★</div>
+      <p class="test-text">خدمة النقل في موسم الحج كانت استثنائية، التزام تام بالمواعيد والتوجيه الدقيق لجميع المشاعر المقدسة. أنصح بهم بشدة لجميع الحجاج.</p>
+      <div class="test-author">
+        <div class="test-avatar">ع.م</div>
+        <div class="test-name"><strong>عبدالله المطيري</strong><span>موسم الحج - المدينة</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PRICING -->
+<div class="section" id="pricing">
+  <div class="center" style="margin-bottom:60px">
+    <div class="tag">الأسعار</div>
+    <h2 class="sec-h">أسعار مرنة تناسبكم</h2>
+  </div>
+  <div class="price-banner reveal">
+    <h3 class="price-h">سعر مخصص لكل برنامج</h3>
+    <p class="price-p">نؤمن بأن لكل رحلة متطلباتها الخاصة، لذلك نصمم الأسعار بمرونة تامة تتناسب مع نوع البرنامج والموسم وعدد المشاركين والمسافة. تواصلوا معنا للحصول على عرض سعر مخصص مجاناً.</p>
+    <div class="price-tags">
+      <div class="price-tag"><i class='bx bx-calendar'></i> حسب الموسم</div>
+      <div class="price-tag"><i class='bx bx-group'></i> حسب العدد</div>
+      <div class="price-tag"><i class='bx bx-map-alt'></i> حسب البرنامج</div>
+      <div class="price-tag"><i class='bx bx-ruler'></i> حسب المسافة</div>
+    </div>
+    <a href="https://wa.me/966538538004?text=السلام عليكم، أرغب في الحصول على عرض سعر لخدمات النقل والعمرة" target="_blank" class="btn-gold"><i class='bx bxl-whatsapp'></i> احصل على عرض سعر مجاني</a>
+  </div>
+</div>
+
+<!-- CONTACT -->
+<div class="contact-wrap" id="contact">
+  <div class="contact-grid">
+    <div class="contact-info reveal-l">
+      <div class="tag">تواصل معنا</div>
+      <h2 class="sec-h">نحن هنا لخدمتكم</h2>
+      <p>فريقنا المتخصص متاح للإجابة على جميع استفساراتكم وتصميم البرنامج الأمثل الذي يناسب احتياجاتكم وميزانيتكم. تواصلوا معنا عبر أي وسيلة تناسبكم.</p>
+      <div class="ccontacts">
+        <a href="tel:+966538538004" class="cc">
+          <div class="cc-icon i-ph"><i class='bx bx-phone'></i></div>
+          <div><div class="cc-label">الهاتف</div><div class="cc-val">+966 53 853 8004</div></div>
+        </a>
+        <a href="https://wa.me/966538538004" target="_blank" class="cc">
+          <div class="cc-icon i-wa"><i class='bx bxl-whatsapp'></i></div>
+          <div><div class="cc-label">واتساب</div><div class="cc-val">+966 53 853 8004</div></div>
+        </a>
+        <a href="mailto:abeer.aldiafah1@gmail.com" class="cc">
+          <div class="cc-icon i-em"><i class='bx bx-envelope'></i></div>
+          <div><div class="cc-label">البريد الإلكتروني</div><div class="cc-val">abeer.aldiafah1@gmail.com</div></div>
+        </a>
+        <a href="https://www.instagram.com/abeer.aldiafah1" target="_blank" class="cc">
+          <div class="cc-icon i-ig"><i class='bx bxl-instagram'></i></div>
+          <div><div class="cc-label">انستجرام</div><div class="cc-val">@abeer.aldiafah1</div></div>
+        </a>
+        <div class="cc">
+          <div class="cc-icon i-lo"><i class='bx bx-map'></i></div>
+          <div><div class="cc-label">الموقع</div><div class="cc-val">مكة المكرمة - الرصيفة - مجمع الجروشي مول - مكتب 25</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="reveal-r">
+      <div class="wa-box">
+        <div class="wa-box-title">احجز الآن عبر واتساب</div>
+        <p>تواصل مباشرة مع فريقنا المتخصص وسنقوم بتصميم البرنامج المثالي الذي يناسب احتياجاتك في أقل من 24 ساعة</p>
+        <a href="https://wa.me/966538538004?text=السلام عليكم، أرغب في الاستفسار عن خدمات شركة عبير الضيافة للنقليات" target="_blank" class="wa-big-btn">
+          <i class='bx bxl-whatsapp'></i> ابدأ المحادثة الآن
+        </a>
+        <div class="wa-note">متاحون 24 ساعة طوال أيام الأسبوع</div>
+      </div>
+      <div class="map-box" style="margin-top:18px">
+        <div class="map-head"><i class='bx bx-map'></i> موقعنا الجغرافي</div>
+        <div class="map-body">
+          <div style="font-size:2rem"><i class='bx bx-building-house'></i></div>
+          <p>مكة المكرمة - الرصيفة<br><strong>مجمع الجروشي مول - مكتب 25</strong></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+<div>
+        <div class="f-brand-name">شركة عبير الضيافة للنقليات</div>
+        <p class="f-brand">شركة سعودية متخصصة في تقديم خدمات النقل والعمرة والإعاشة داخل جميع مناطق المملكة العربية السعودية بأعلى معايير الجودة والالتزام لخدمة ضيوف الرحمن.</p>
+      </div>
+      <div class="f-col">      
+        <h4>روابط سريعة</h4>
+        <ul>
+          <li><a href="#about">من نحن</a></li>
+          <li><a href="#services">خدماتنا</a></li>
+          <li><a href="#why">لماذا نحن</a></li>
+          <li><a href="#coverage">مناطق التغطية</a></li>
+          <li><a href="#pricing">الأسعار</a></li>
+          <li><a href="#contact">تواصل معنا</a></li>
+        </ul>
+      </div>
+      <div class="f-col">
+        <h4>خدماتنا</h4>
+        <ul>
+          <li><a href="#services">خدمة العمرة</a></li>
+          <li><a href="#services">خدمات النقل</a></li>
+          <li><a href="#services">خدمات الإعاشة</a></li>
+          <li><a href="#services">برامج الحج</a></li>
+          <li><a href="https://wa.me/966538538004" target="_blank">احجز الآن</a></li>
+        </ul>
+      </div>
+      <div class="f-col">
+        <h4>تواصل معنا</h4>
+        <ul>
+          <li><a href="tel:+966538538004"><i class='bx bx-phone'></i> +966 53 853 8004</a></li>
+          <li><a href="https://wa.me/966538538004" target="_blank"><i class='bx bxl-whatsapp'></i> واتساب</a></li>
+          <li><a href="mailto:abeer.aldiafah1@gmail.com"><i class='bx bx-envelope'></i> البريد الإلكتروني</a></li>
+          <li><a href="https://www.instagram.com/abeer.aldiafah1" target="_blank"><i class='bx bxl-instagram'></i> انستجرام</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 شركة عبير الضيافة للنقليات - جميع الحقوق محفوظة</p>
+      <div class="socials">
+        <a href="https://www.instagram.com/abeer.aldiafah1" target="_blank" class="soc"><i class='bx bxl-instagram'></i></a>
+        <a href="https://wa.me/966538538004" target="_blank" class="soc"><i class='bx bxl-whatsapp'></i></a>
+        <a href="mailto:abeer.aldiafah1@gmail.com" class="soc"><i class='bx bx-envelope'></i></a>
+        <a href="tel:+966538538004" class="soc"><i class='bx bx-phone'></i></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Nav scroll
+const nav=document.getElementById('navbar');
+window.addEventListener('scroll',()=>{
+  nav.classList.toggle('scrolled',window.scrollY>40);
+});
+
+// Mobile menu
+const hb=document.getElementById('hamburger');
+const mm=document.getElementById('mobile-menu');
+hb.addEventListener('click',()=>mm.classList.toggle('open'));
+mm.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>mm.classList.remove('open')));
+
+// Scroll reveal & Counters
+const observer=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      e.target.classList.add('show');
+      if(e.target.classList.contains('stats')){
+        e.target.querySelectorAll('.count-up').forEach(counter => {
+          const target = +counter.getAttribute('data-target');
+          let count = 0;
+          const speed = target / 40;
+          const update = () => {
+            count += speed;
+            if(count < target) { counter.innerText = Math.ceil(count); requestAnimationFrame(update); }
+            else { counter.innerText = target; }
+          };
+          update();
+        });
+        observer.unobserve(e.target);
+      }
+    }
+  });
+},{threshold:.1,rootMargin:'0px 0px -50px 0px'});
+document.querySelectorAll('.reveal,.reveal-r,.reveal-l,.stats').forEach(el=>observer.observe(el));
+
+// Smooth scroll
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click',e=>{
+    e.preventDefault();
+    const t=document.querySelector(a.getAttribute('href'));
+    if(t)t.scrollIntoView({behavior:'smooth'});
+  });
+});
+</script>
+</body>
+</html>
